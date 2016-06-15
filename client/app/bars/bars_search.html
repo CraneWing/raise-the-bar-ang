@@ -1,0 +1,69 @@
+<div class="jumbotron secondary search"></div>
+<div class="container main">
+  <div class="row">
+  	<div class="col-md-8 col-md-offset-2">
+  		<h2 class="custom-page-header">Search for Local Bars</h2>
+      <hr class="style-eight">
+      <form class="form-search" method="post" ng-submit="searchBars()" name="barSearchForm">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control large" name="location" ng-model="location" placeholder="Enter a location">
+          <span class="input-group-btn" id="search-btn">
+            <button class="btn" type="button submit">
+              <i class="ion-android-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+  	</div>
+    <div class="clearfix"></div>
+    <div id="spinner">
+      <spinner name="resultSpinner" img-src="/assets/img/cocktail-spinner.gif"></spinner>
+    </div>
+  </div>
+  <div class="row" ng-show="areResults">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 class="custom-page-header bar-results">
+        Your Results
+        <span>(<em>powered by</em><img src="/assets/img/yelp.png" alt="Yelp logo">)</span>
+      </h3>
+      <div class="media" ng-repeat="bar in bars.businesses">
+        <img class="pull-left" src="{{bar.image_url}}">
+        <div class="media-body">
+          <div class="col-xs-9">
+            <h4 class="media-heading">
+              {{bar.name}}
+            
+              </h4>
+            <p><strong>Address:</strong> {{bar.location.address[0]}}<br>
+            {{bar.location.city}}, {{bar.location.state_code}} {{bar.location.postal_code}}<br>
+            <strong>{{formattedPhone(bar.phone)}}</strong>
+          </p>
+          <p><strong>Categories</strong></p>
+            <ul class="styles">
+              <li ng-repeat="category in bar.categories">
+                <i class="ion-android-done"></i> {{category[0]}}
+              </li>
+            </ul>
+            <p class="review-snippet"><em>{{bar.snippet_text}}</em></p>
+            <br>
+            <p>
+              <a href="{{bar.url}}" class="btn btn-details" target="_blank">
+                View on Yelp
+              </a>
+              &nbsp;
+              <a href="#" class="btn btn-details">
+                <span class="qty-going">0</span> Going
+              </a>
+            </p>
+          </div>
+          <div class="col-xs-3">
+            <div class="bar-rating">
+               <p>{{bar.rating}}</p>
+            </div>
+          </div>
+        </div>
+        <hr class="style-eight">
+      </div>
+    </div>
+  </div>
+</div>

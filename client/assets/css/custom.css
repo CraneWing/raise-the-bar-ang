@@ -1,0 +1,417 @@
+@font-face {
+  font-family: 'bitstream_vera_sansroman';
+  src: url('../fonts/Vera/Vera-webfont.eot');
+  src: url('../fonts/Vera/Vera-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Vera/Vera-webfont.woff') format('woff'),
+       url('../fonts/Vera/Vera-webfont.ttf') format('truetype'),
+       url('../fonts/Vera/Vera-webfont.svg#bitstream_vera_sansroman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LiberationSerif';
+  src: url('../fonts/Liberation/LiberationSerif-Regular-webfont.eot');
+  src: url('../fonts/Liberation/LiberationSerif-Regular-webfont?#iefix') format('embedded-opentype'),
+       url('../fonts/Liberation/LiberationSerif-Regular-webfont.woff') format('woff'),
+       url('../fonts/Liberation/LiberationSerif-Regular-webfont.ttf') format('truetype'),
+       url('../fonts/Liberation/LiberationSerif-Regular-webfont.svg#LiberationSerif') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/********* general ***********/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	font-family: 'LiberationSerif', serif;
+	line-height: normal;
+	font-size: 1.8em;
+  margin-bottom: 80px;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'bitstream_vera_sansroman', sans-serif;
+}
+
+.custom-page-header {
+  text-align: center;
+  padding-bottom: 9px;
+  margin: 40px 0 0px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.text-red {
+  color: #ff0000;
+}
+
+/******************************/
+
+/*********** rules ************/
+/* horizontal rule - by 
+Harry Roberts at CSS-Tricks */
+hr.style-eight {
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333; text-align: center; 
+  }
+
+hr.style-eight:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+.simple-double {
+  border-top: medium double #333;
+}
+
+/*****************************/
+
+.main {
+  padding-top: 15px;
+}
+
+.navbar-brand img{
+  width: 60%;
+  margin-top: -6px;
+}
+
+.navbar {
+	background-color: #333;
+	color: #000;
+  font-family: 'bitstream_vera_sansroman', sans-serif;
+}
+
+.navbar a,
+.navbar a .active {
+	color: #eee;
+}
+
+.navbar a:hover {
+  color: #333;
+}
+
+.navbar .active {
+  color: #333;
+}
+
+/*****************************/
+.form-well {
+  background-color: #333;
+  color: #fff;
+  font-family: 'bitstream_vera_sansroman', sans-serif;
+  padding: 25px;
+}
+
+label {
+  font-weight: 100;
+  padding-bottom: 4px;
+}
+
+.form-well .input-lg {
+  border-radius: 0 !important;
+  border: none;
+}
+
+.form-well-input input[type="text"]:focus,
+.form-well-input input[type="password"]:focus {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.form-search input[type="text"] {
+  border: 1px solid #333;
+  border-radius: 0 !important;
+  color: #333;
+}
+
+.form-search input[type="text"]:focus {
+  border: 1px solid #000;
+  box-shadow: inset 0 1px 1px rgba(51, 51, 51, 0.075), 0 0 8px rgba(51, 51, 51, 0.6);
+}
+
+/* button styles */
+.btn-outline {
+  text-transform: uppercase;
+	font-family: 'bitstream_vera_sansroman', sans-serif;
+	font-weight: lighter;
+	background: transparent;
+	border-radius: 0;
+	padding: 8px 14px;
+	text-decoration: none;
+}
+
+.btn-outline:hover {
+  text-decoration: none;
+}
+
+.btn-outline-white {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline-white:hover {
+  color: #fff !important;
+}
+
+.btn-outline-dark {
+  border: 3px solid #333;
+  color: #333;
+}
+
+.btn-outline-dark:hover {
+  color: #333;
+}
+
+#twitter-signup span {
+  font-size: 28px;
+}
+
+/*****************************/
+
+/******* jumbotron headers *******/
+
+/* -- homepage -- */
+.jumbotron {
+  background-image: url('../img/the-bar.jpg');
+  background-size: cover;
+  min-height: 475px;
+  position: relative;
+}
+
+.jumbotron #subtitle {
+  background-color: #000;
+  opacity: 0.75;
+  color: #fff;
+  width: 100%;
+}
+
+/*-- secondary page jumbotrons --*/
+.secondary {
+  min-height: 300px;
+  background-size: cover;
+}
+
+.search {
+  background-image: url('../img/bar-perspective.jpg');
+}
+
+.about {
+  background-image: url('../img/martini.jpg');
+}
+
+.detail {
+  background-image: url('../img/wine-bar.jpg');
+}
+
+.sign-up {
+  background-image: url('../img/cheers.jpg');
+}
+
+.login {
+  background-image: url('../img/bottle-necks.jpg');
+}
+/*****************************/
+/* homepage */
+#tagline, #go {
+  padding: 6px 0;
+}
+
+#logo-wrap {
+ text-align: center;
+ padding: 15px 0;
+}
+
+.features i {
+	font-size: 64px;
+}
+
+.features .col-md-4 {
+  padding: 40px 0 60px 0;
+}
+
+.features p {
+	line-height: 1.6em;
+  padding: 0 10px;
+}
+
+/*****************************/
+
+/******** about page *********/
+.row-about {
+  padding-bottom: 50px;
+}
+
+/* search box styles */
+
+.form-search {
+  padding-top: 15px;
+}
+
+.ion-android-search {
+  font-size: 22px;
+}
+
+.input-group-btn button {
+  background-color: #000;
+  color: #eee;
+  border: 0;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.input-group-btn button:hover {
+  color: #fff;
+}
+
+/* search results styles */
+#spinner {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.bar-results {
+   border-bottom: 1.5px solid #333;
+}
+
+.bar-results span {
+  font-size: 16px;
+}
+
+.bar-results span img {
+  width: 80px;
+  margin-top: -6px;
+  margin-left: 6px;
+}
+
+.bar-rating {
+  background: url('../img/cocktail-icon.png');
+  width: 70px;
+  height: 70px;
+  background-size: 100%;
+  color: #fff;
+  font-family: 'bitstream_vera_sansroman', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.review-snippet {
+  font-size: 16px !important;
+}
+
+.bar-rating p {
+  padding-top: 8px;
+}
+
+.btn-details {
+  background: transparent;
+  border-radius: 0;
+  border: 2px solid #000;
+  padding: 8px 10px;
+  font-family: 'bitstream_vera_sansroman';
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.btn-details:hover {
+  background: #eee;
+}
+
+.detail-rating {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #398439;
+  color: #fff;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "bitstream_vera_sansroman", sans-serif;
+}
+
+.detail-rating p {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.detail-img {
+  padding-bottom: 15px;
+}
+
+.styles {
+  list-style: none;
+}
+
+.yelp {
+  margin-top: 12px;
+}
+
+/*****************************/
+
+/* page footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color: #333;
+  font-family: 'bitstream_vera_sansroman', sans-serif;
+  color: #eee;
+}
+
+.footer ul {
+  list-style: none;
+  padding-top: 10px;
+  float: left;
+}
+
+.footer ul li,
+.footer p {
+  font-size: 11px;
+}
+
+.footer li {
+  display: inline-block;
+  margin-left: 6px
+}
+
+.footer li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer li a:hover,
+#repo a:hover {
+  color: #666;
+}
+
+.footer p {
+  padding-top: 10px;
+}
+
+#repo {
+  padding: 0;
+}
+
+#repo a {
+  font-size: 20px;
+  color: #fff;
+}
+

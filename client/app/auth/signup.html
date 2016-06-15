@@ -1,0 +1,38 @@
+<div class="jumbotron secondary sign-up"></div>
+<div class="container main">
+  <div class="row row-about">
+  	<div class="col-md-8 col-md-offset-2">
+  		<h2 class="custom-page-header">Sign Up</h2>
+      <hr class="style-eight">
+       <div flash-message></div>
+      <div class="form-well">
+        <form name="signupForm" ng-controller="AuthController" ng-submit="signup()">
+          <div class="form-group">
+            <label for="display_name">Name</label>
+            <input type="text" name="display_name" class="form-control input-lg form-well-input" required ng-model="reg.display_name">
+            <div class="help-block" ng-messages="signupForm.display_name.$error" ng-if="signupForm.display_name.$dirty">
+              <div class="text-red" ng-message="required">Name is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">Username (your email)</label>
+            <input type="email" name="username" class="form-control input-lg form-well-input" required ng-model="reg.username">
+            <div class="help-block" ng-messages="signupForm.username.$error" ng-if="signupForm.username.$dirty">
+              <div class="text-red" ng-message="required">Username is required.</div>
+              <div class="text-red" ng-message="email">Invalid email.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control input-lg form-well-input" required ng-model="reg.password" ng-minlength="5">
+            <div class="help-block" ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty">
+              <div class="text-red" ng-message="required">Password is required.</div>
+              <div class="text-red" ng-message="minlength">Password must be five or more characters.</div>
+            </div>
+          </div>
+          <button type="submit" class="btn-outline btn-outline-white">Submit</button>
+        </form>
+      </div>
+  	</div>
+  </div>
+</div>

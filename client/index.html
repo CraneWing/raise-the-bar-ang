@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="BarApp">
+	<head>
+		<meta charset="utf-8">
+		<title ng-bind="'Raise the Bar | ' + $title">Raise the Bar</title>
+		<link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="/assets/lib/bootstrap/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="/assets/css/custom.css">
+	  <script src="/assets/lib/jquery/dist/jquery.min.js"></script>
+	  <script src="/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/angular/angular.js"></script>
+	</head>
+    <body>
+  	<nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed navbar-mobile" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/#" class="navbar-brand"><img src="/assets/img/raise-bar-wh.png" alt="Raise the Bar"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav" ng-controller="AuthController">
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/signup">Sign Up</a></li>
+            <li><a ng-click="logout()">Logout</a></li>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/search">Search</a></li>
+          </ul>
+        </div><!-- nav-collapse -->
+      </div> <!-- nav container -->
+    </nav> <!-- nav -->
+    <div ui-view></div>
+    <footer class="footer">
+      <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <li>&bull; <a href="/$">Home</a></li>
+            <li>&bull; <a href="/about">About</a></li>
+            <li>&bull; <a href="/search">Search</a></li>
+            <li>&bull; <a href="/login">Login</a></li>
+            <li>&bull; <a href="/signup">Sign Up</a></li>
+          <ul>
+        </div>
+        <div class="col-md-4">
+          <p>Raise the Bar, a Free Code Camp full stack challenge, by CraneWing, 2016.</p>
+          <p id="repo">Repo: <a href="http://github.com/CraneWing/raise-the-bar" target="_blank"><span class="ion-social-github"></span></a></p>
+        </div>
+      </div>
+    </footer>
+    <script src="/assets/lib/angular-resource/angular-resource.min.js"></script>
+    <script src="/assets/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/assets/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/assets/lib/angular-messages/angular-messages.min.js"></script>
+    <script src="/assets/lib/angular-flash-alert/dist/angular-flash.min.js"></script>
+    <script src="assets/lib/angular-ui-router-title/angular-ui-router-title.js"></script>
+    <script src="/assets/lib/angular-spinners/dist/angular-spinners.js"></script>
+    <script src="/assets/lib/satellizer/satellizer.min.js"></script>
+		<script src="/app/app.js"></script>
+    <script src="/app/auth/auth.controller.js"></script>
+    <script src="/app/bars/bar.controller.js"></script>
+    <script src="/app/auth/auth.service.js"></script>
+  </body>
+</html>

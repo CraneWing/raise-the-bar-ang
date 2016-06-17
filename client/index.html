@@ -11,11 +11,11 @@
 	  <script src="/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/lib/angular/angular.js"></script>
 	</head>
-    <body>
-  	<nav class="navbar navbar-fixed-top" role="navigation">
+  <body>
+  	<div class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed navbar-mobile" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -23,17 +23,25 @@
           </button>
           <a href="/#" class="navbar-brand"><img src="/assets/img/raise-bar-wh.png" alt="Raise the Bar"></a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse pull-right">
-          <ul class="nav navbar-nav" ng-controller="AuthController">
-            <li><a href="#/login">Login</a></li>
-            <li><a href="#/signup">Sign Up</a></li>
-            <li><a ng-click="logout()">Logout</a></li>
+        <div id="navbar" class="collapse navbar-collapse" ng-controller="NavbarController">
+          <ul class="nav navbar-nav">
             <li><a href="#/about">About</a></li>
             <li><a href="#/search">Search</a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/signup">Sign Up</a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
+            <li class="logout" ng-if="isAuthenticated()">
+              <a ng-click="logout()">Logout</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="current-user" ng-if="isAuthenticated()">
+              <img ng-src="/assets/img/{{currentUser.profile_img}}" class="profile-img">
+              <span>{{currentUser.display_name}}</span>
+            </li>
           </ul>
         </div><!-- nav-collapse -->
       </div> <!-- nav container -->
-    </nav> <!-- nav -->
+    </div> <!-- nav -->
     <div ui-view></div>
     <footer class="footer">
       <div class="row">
@@ -42,7 +50,7 @@
             <li>&bull; <a href="/$">Home</a></li>
             <li>&bull; <a href="/about">About</a></li>
             <li>&bull; <a href="/search">Search</a></li>
-            <li>&bull; <a href="/login">Login</a></li>
+            <li>&bull; <a href="/login">Login with Twitter</a></li>
             <li>&bull; <a href="/signup">Sign Up</a></li>
           <ul>
         </div>
@@ -61,8 +69,9 @@
     <script src="/assets/lib/angular-spinners/dist/angular-spinners.js"></script>
     <script src="/assets/lib/satellizer/satellizer.min.js"></script>
 		<script src="/app/app.js"></script>
-    <script src="/app/auth/auth.controller.js"></script>
-    <script src="/app/bars/bar.controller.js"></script>
-    <script src="/app/auth/auth.service.js"></script>
+		<script src="/app/bars/bar.controller.js"></script>
+    <script src="/app/auth/login.controller.js"></script>
+    <script src="/app/auth/signup.controller.js"></script>
+    <script src="/app/navbar/navbar.controller.js"></script>
   </body>
 </html>

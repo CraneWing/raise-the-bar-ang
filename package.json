@@ -1,26 +1,31 @@
 {
   "name": "raise-the-bar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Free Code Camp challenge to build a bar/nightspot search with third-party API and user ability to create guest lists",
   "main": "server.js",
-  "homepage": "https://raise-the-bar-ang-cranewing.c9users.io/",
+  "repositary": {
+    "type": "git",
+    "url": "https://github.com/CraneWing/raise-the-bar-ang"
+  },
+  "url": "https://raise-the-bar-ang-cranewing.c9users.io",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Victoria Mielke",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.1",
     "bower": "^1.7.9",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^1.2.0",
-    "express": "^4.12.4",
-    "express-session": "^1.11.3",
-    "mongoose": "^4.1.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.5.0",
+    "moment": "^2.13.0",
+    "mongoose": "^4.4.19",
     "morgan": "^1.7.0",
-    "passport": "^0.3.0",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.72.0",
     "serve-favicon": "^2.3.0",
     "yelp": "^1.0.1"
   }

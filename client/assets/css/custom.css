@@ -100,12 +100,25 @@ hr.style-eight:after {
 	color: #eee;
 }
 
+.current-user span {
+	color: #eee;
+	padding-top: 12px;
+}
+
+.logout {
+  cursor: pointer;
+}
+
 .navbar a:hover {
   color: #333;
 }
 
 .navbar .active {
   color: #333;
+}
+
+.profile-img {
+  border-radius: 50%;
 }
 
 /*****************************/

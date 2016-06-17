@@ -1,7 +1,7 @@
 angular.module('BarApp', ['ui.router', 'ngResource', 'angularSpinners',
-	 'ui.router.title', 'ngFlash', 'ngMessages'])
-	.config(['$stateProvider', '$urlRouterProvider',
-		function($stateProvider, $urlRouterProvider) {
+	 'ui.router.title', 'ngFlash', 'ngMessages', 'satellizer'])
+	.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
+		function($stateProvider, $urlRouterProvider, $authProvider) {
 
 			$stateProvider
 				.state('/home', {
@@ -29,7 +29,7 @@ angular.module('BarApp', ['ui.router', 'ngResource', 'angularSpinners',
 				.state('/login', { 
 					url: '/login',
 				 	templateUrl: 'app/auth/login.html',
-				 	controller: 'AuthController',
+				 	controller: 'LoginController',
 				 	resolve: {
 						$title: function() { return 'Login'; }
 					}
@@ -37,11 +37,27 @@ angular.module('BarApp', ['ui.router', 'ngResource', 'angularSpinners',
 				.state('/signup', { 
 					url: '/signup',
 				 	templateUrl: 'app/auth/signup.html',
-				 	controller: 'AuthController',
+				 	controller: 'SignupController',
 				 	resolve: {
 						$title: function() { return 'Sign Up'; }
 					}
 				});
 
 				$urlRouterProvider.otherwise('/');
+				
+				// config for Satellizer authentication
+				$authProvider.loginUrl = 'https://raise-the-bar-ang-cranewing.c9users.io/api/users/login';
+				$authProvider.signupUrl = 'https://raise-the-bar-ang-cranewing.c9users.io/api/users/signup';
+				
+				$authProvider.twitter({
+				  url: '/api/users/twitter',
+				  responseType: 'token'
+				});
+	}])
+	
+	// will keep the user info in the app so data persists
+	.run(['$rootScope', '$window', '$auth', function($rootScope, $window, $auth) {
+		if ($auth.isAuthenticated()) {
+			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+		}
 	}]);

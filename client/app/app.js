@@ -51,7 +51,10 @@ angular.module('BarApp', ['ui.router', 'ngResource', 'angularSpinners',
 				
 				$authProvider.twitter({
 				  url: '/api/users/twitter',
-				  responseType: 'token'
+				  responseType: 'token',
+				  popupOptions: {
+				  	width: 495, height: 600
+				  }
 				});
 	}])
 	

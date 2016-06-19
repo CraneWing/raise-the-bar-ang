@@ -63,7 +63,11 @@ router.post('/login', function(req, res, next) {
 
       res.send({
         token: token,
-        user: user
+        user: {
+          display_name: user.display_name,
+          profile_img: user.profile_img,
+          id: user._id
+        }
       });
     });
   });
@@ -150,7 +154,11 @@ router.post('/twitter', function(req, res) {
               user.save(function(err) {
                 res.send({
                   token: authMiddleware.createToken(user),
-                  user: user
+                  user: {
+                    display_name: user.display_name,
+                    profile_img: user.profile_img,
+                    id: user._id
+                  }
                 });
               });
             });
@@ -162,7 +170,11 @@ router.post('/twitter', function(req, res) {
             if (existingUser) {
               return res.send({
                 token: authMiddleware.createToken(existingUser),
-                user: existingUser
+                user: {
+                  display_name: existingUser.display_name,
+                  profile_img: existingUser.profile_img,
+                  id: existingUser._id
+                }
               });
             }
 
@@ -174,7 +186,11 @@ router.post('/twitter', function(req, res) {
             user.save(function() {
               res.send({
                 token: authMiddleware.createToken(user),
-                user: user
+                user: {
+                  display_name: user.display_name,
+                  profile_img: user.profile_img,
+                  id: user._id
+                }
               });
             });
           });

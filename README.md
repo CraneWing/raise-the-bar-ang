@@ -9,6 +9,6 @@ These are the "user stories" this app must fulfill:
 * As an authenticated user, I can remove myself from a bar if I no longer want to go there.
 * As an unauthenticated user, when I login I should not have to search again.
 
-App is Node based, with Express and Angular with MongoDB for user database. Authentication is with the Angular module [Satellizer](https://github.com/sahat/satellizer) by Sahat Yakalbov. Frontend auth controllers and backend user API are based on his tutorial on [making an Instagram clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb), but with Twitter login.
+App is Node based, with Express and Angular with MongoDB for user database. Authentication is with the Angular module [Satellizer](https://github.com/sahat/satellizer) by Sahat Yakalbov. Frontend auth controllers and backend user API are based on his documentation at this GitHub repo and [making an Instagram clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb).
 
 Custom fonts are Liberation Sans and Vera, came from Font Squirrel. Photos came from Unsplash and other free photo sites.

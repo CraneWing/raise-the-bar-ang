@@ -52,6 +52,11 @@ h1, h2, h3, h4 {
   color: #ff0000;
 }
 
+.ng-click-link {
+  cursor: pointer;
+}
+
+
 /******************************/
 
 /*********** rules ************/
@@ -105,10 +110,6 @@ hr.style-eight:after {
 	padding-top: 12px;
 }
 
-.logout {
-  cursor: pointer;
-}
-
 .navbar a:hover {
   color: #333;
 }
@@ -119,6 +120,8 @@ hr.style-eight:after {
 
 .profile-img {
   border-radius: 50%;
+  height: 35px;
+  width: 35px;
 }
 
 /*****************************/

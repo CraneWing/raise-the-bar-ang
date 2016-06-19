@@ -8,7 +8,7 @@ var userSchema = new Schema({
 		type: String,
 		index: true
 	},
-	email: {
+	username: {
 		type: String,
 		unique: true
 	},
@@ -19,25 +19,11 @@ var userSchema = new Schema({
 	display_name: {
 		type: String
 	},
-	profile_img: {
-		type: String,
-		default: 'cocktail-placeholder.png'
-	},
+	profile_img: String,
 	user_created_at: {
 		type: Date,
 		default: Date.now
-	},
-	searches: [{
-		search_term: String,
-		created_at: {
-			type: Date,
-			default: Date.now()
-		}
-	}],
-	going_to: [{
-		location: String,
-		count: Number
-	}],
+	}
 });
 
 userSchema.pre('save', function(next) {

@@ -18,7 +18,7 @@ middleware.createToken = function(user) {
 	return jwt.encode(payload, keys.local.tokenSecret);
 };
 
-// project routes from users not logged in
+// protect routes from users not logged in
 middleware.isAuthenticated = function(req, res, next) {
 	if (!(req.headers && req.headers.authorization)) {
 		return res.status(400).send({

@@ -27,7 +27,7 @@
         <span>(<em>powered by</em><img src="/assets/img/yelp.png" alt="Yelp logo">)</span>
       </h3>
       <div class="media" ng-repeat="bar in bars.businesses">
-        <img class="pull-left" src="{{bar.image_url}}">
+        <img ng-src="{{bar.image_url}}" class="pull-left">
         <div class="media-body">
           <div class="col-xs-9">
             <h4 class="media-heading">
@@ -51,8 +51,8 @@
                 View on Yelp
               </a>
               &nbsp;
-              <a href="#" class="btn btn-details">
-                <span class="qty-going">0</span> Going
+              <a class="btn btn-details" ng-click="addGuest(bar.id)">
+                <span class="qty-going">{{guests}}</span> Going
               </a>
             </p>
           </div>

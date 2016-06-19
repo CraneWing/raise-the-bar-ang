@@ -8,7 +8,11 @@ angular.module('BarApp')
  			password: $scope.password 
  		})
  		.then(function(response) {
- 			$window.localStorage.currentUser = JSON.stringify(response.data.user);
+ 			$window.localStorage.currentUser = JSON.stringify({
+ 			  email: response.data.user.email,
+ 			  display_name: response.data.user.display_name,
+ 				profile_img: response.data.user.profile_img
+ 			});
  			$rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
  		})
  		.catch(function(response) {
@@ -33,7 +37,6 @@ angular.module('BarApp')
  				console.log(response.data);
  			});
  	};
-
 
 }]);
 

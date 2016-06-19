@@ -29,13 +29,13 @@
             <li><a href="#/search">Search</a></li>
             <li ng-if="!isAuthenticated()"><a href="#/signup">Sign Up</a></li>
             <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
-            <li class="logout" ng-if="isAuthenticated()">
-              <a ng-click="logout()">Logout</a>
+            <li ng-if="isAuthenticated()" class="logout" ng-if="isAuthenticated()">
+              <a ng-click="logout()" class="ng-click-link">Logout</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="current-user" ng-if="isAuthenticated()">
-              <img ng-src="/assets/img/{{currentUser.profile_img}}" class="profile-img">
+              <img ng-src="{{currentUser.profile_img}}" class="profile-img">
               <span>{{currentUser.display_name}}</span>
             </li>
           </ul>

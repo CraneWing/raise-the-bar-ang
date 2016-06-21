@@ -4,9 +4,25 @@ var Schema = mongoose.Schema;
 var searchSchema = new Schema({
 	term: String,
 	user_id: String,
-	reservations: [{
-		bar_id: String,
-		going: Number
+	bars: [{
+		_id: String,
+		name: String,
+		location: {
+			address: [String],
+			city: String,
+			state_code: String,
+			postal_code: String
+		},
+		phone: String,
+		image_url: String,
+		snippet_text: String,
+		categories: [String],
+		url: String,
+		rating: Number,
+		guests: {
+			type: Number,
+			default: 0
+		}
 	}]
 });
 

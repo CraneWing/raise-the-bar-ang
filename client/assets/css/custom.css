@@ -56,7 +56,6 @@ h1, h2, h3, h4 {
   cursor: pointer;
 }
 
-
 /******************************/
 
 /*********** rules ************/
@@ -96,12 +95,11 @@ hr.style-eight:after {
 
 .navbar {
 	background-color: #333;
-	color: #000;
+	color: #eee;
   font-family: 'bitstream_vera_sansroman', sans-serif;
 }
 
-.navbar a,
-.navbar a .active {
+.navbar a {
 	color: #eee;
 }
 
@@ -114,8 +112,9 @@ hr.style-eight:after {
   color: #333;
 }
 
-.navbar .active {
+.navbar li .active {
   color: #333;
+  background-color: #eee;
 }
 
 .profile-img {

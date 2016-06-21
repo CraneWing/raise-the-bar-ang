@@ -25,10 +25,18 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse" ng-controller="NavbarController">
           <ul class="nav navbar-nav">
-            <li><a href="#/about">About</a></li>
-            <li><a href="#/search">Search</a></li>
-            <li ng-if="!isAuthenticated()"><a href="#/signup">Sign Up</a></li>
-            <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
+            <li>
+              <a href="#/about" ng-class="getClass('/about')">About</a>
+            </li>
+            <li>
+              <a href="#/search" ng-class="getClass('/search')">Search</a>
+            </li>
+            <li ng-if="!isAuthenticated()">
+              <a href="#/signup" ng-class="getClass('/signup')">Sign Up</a>
+            </li>
+            <li ng-if="!isAuthenticated()">
+              <a href="#/login" ng-class="getClass('/login')">Login</a>
+            </li>
             <li ng-if="isAuthenticated()" class="logout" ng-if="isAuthenticated()">
               <a ng-click="logout()" class="ng-click-link">Logout</a>
             </li>
@@ -56,7 +64,7 @@
         </div>
         <div class="col-md-4">
           <p>Raise the Bar, a Free Code Camp full stack challenge, by CraneWing, 2016.</p>
-          <p id="repo">Repo: <a href="http://github.com/CraneWing/raise-the-bar" target="_blank"><span class="ion-social-github"></span></a></p>
+          <p id="repo">Repo: <a href="http://github.com/CraneWing/raise-the-bar-ang" target="_blank"><span class="ion-social-github"></span></a></p>
         </div>
       </div>
     </footer>

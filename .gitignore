@@ -4,4 +4,4 @@ node_modules/
 mongod
 server/config
 client/assets/lib
-data/
+data

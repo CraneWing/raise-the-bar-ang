@@ -57,7 +57,6 @@ angular.module('BarApp', ['ui.router', 'ngResource', 'angularSpinners',
 				  }
 				});
 	}])
-	
 	// will keep the user info in the app so data persists
 	.run(['$rootScope', '$window', '$auth', function($rootScope, $window, $auth) {
 		if ($auth.isAuthenticated()) {

@@ -5,10 +5,9 @@ angular.module('BarApp')
 			$rootScope.viewTitle = 'Search';
 			$scope.bars = {};
 			$scope.location = '';
-			$scope.tempSearchSave = {};
+			$scope.reservations = {};
 			$scope.phone = '';
 			$scope.areResults = false;
-			$scope.guest = 0;
 	
 			var userId, signedIn;
 			
@@ -41,15 +40,8 @@ angular.module('BarApp')
 				})
 				.success(function(results) {
 					$scope.areResults = true;
-					$scope.bars = results;
-					//console.log($scope.bars);
-					if ($auth.isAuthenticated()) {
-						$scope.tempSearchSave = {
-							location: $scope.location.replace(/,/g, '').toLowerCase(),
-							user_id: $rootScope.currentUser.id,
-							bars: $scope.bars
-						};
-					}
+					$scope.bars = results.bars;
+					$scope.reservations = results.reservations;
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -65,8 +57,47 @@ angular.module('BarApp')
 				return phoneFormatted;
 			};
 			
-			$scope.addGuest = function(barId, savedLocation) {
-				$scope.guest = $scope.guest === 0 ? 1 : 0;
-				console.log($scope.tempSearchSave.bars.barId);
+			$scope.setGuests = function(barId) {
+				for (var key in $scope.reservations) {
+					if (key === barId) {
+						return $scope.reservations[key];
+					}
+				}
+			};
+			
+			$scope.toggleGuests = function(event, barId) {
+				$scope.reservations[barId] = $scope.reservations[barId] === 0 ? 1 : 0; 
+				
+				switch(parseInt($scope.reservations[barId], 10)) {
+					case 0: 
+						$scope.deleteReservation(barId, userId);
+						break;
+					case 1:
+						$scope.createReservation(barId, userId);
+						break;
+				}
+				
+				return $scope.reservations[barId];
+			};
+			
+			$scope.createReservation = function(barId, userId) {
+				console.log('bar ID is ' + barId + ' and user ID is ' + userId);
+				$http.post('/api/bars/create', {
+					bar_id: barId,
+					user_id: userId
+				})
+				.success(function(data) {
+					console.log('data sent!');
+				});
+			};
+			
+			$scope.deleteReservation = function(barId, userId) {
+				$http.post('/api/bars/delete', {
+					bar_id: barId,
+					user_id: userId
+				})
+				.success(function(data) {
+					console.log('data sent!');
+				});
 			};
 }]);

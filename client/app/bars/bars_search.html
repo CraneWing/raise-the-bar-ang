@@ -26,7 +26,7 @@
         Your Results
         <span>(<em>powered by</em><img src="/assets/img/yelp.png" alt="Yelp logo">)</span>
       </h3>
-      <div class="media" ng-repeat="bar in bars.results">
+      <div class="media" ng-repeat="bar in bars">
         <img ng-src="{{bar.image_url}}" class="pull-left">
         <div class="media-body">
           <div class="col-xs-9">
@@ -34,14 +34,11 @@
             <p><strong>Address:</strong> {{bar.location.address[0]}}<br>
             {{bar.location.city}}, {{bar.location.state_code}} {{bar.location.postal_code}} 
             <br>
-            <strong>{{bar.hasOwnProperty('phone') ? formattedPhone(bar.phone) : 'N/A'}}</strong>
+            <strong>{{bar.hasOwnProperty('phone') ? formattedPhone(bar.phone) : 'Phone not given'}}</strong>
           </p>
           <p><strong>Categories</strong></p>
             <ul class="styles">
-              <li ng-if="isAuthenticated()" ng-repeat="category in bar.categories">
-                <i class="ion-android-done"></i> {{category}}
-              </li>
-              <li ng-if="!isAuthenticated()" ng-repeat="category in bar.categories">
+              <li ng-repeat="category in bar.categories">
                 <i class="ion-android-done"></i> {{category[0]}}
               </li>
             </ul>
@@ -52,8 +49,10 @@
                 View on Yelp
               </a>
               &nbsp;
-              <a class="btn btn-details" ng-show="isAuthenticated()" ng-click="addGuest(bar._id, tempSearchSave.location)">
-                <span class="qty-going">{{guest}}</span> Going
+              <a href class="btn btn-details" ng-show="isAuthenticated()" ng-click="toggleGuests($event, bar.id)">
+                <span class="qty-going">
+                  {{setGuests(bar.id)}}
+                </span> Going
               </a>
             </p>
           </div>

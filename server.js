@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/raisethebar');
+mongoose.connect('mongodb://cranewing-raise-the-bar-ang-3349883:27017/raisethebar');
 
 var bars = require('./server/routes/bars');
 var users = require('./server/routes/users');
